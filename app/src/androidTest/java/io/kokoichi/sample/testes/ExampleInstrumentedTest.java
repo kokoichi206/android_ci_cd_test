@@ -27,10 +27,10 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("io.kokoichi.sample.testes", appContext.getPackageName());
-
-        List mockList = Mockito.mock();
-
-        mockList.add("apple");
-        assertEquals("apple", mockList.get(0));
+//
+//        List mockList = Mockito.mock();
+//
+//        mockList.add("apple");
+//        assertEquals("apple", mockList.get(0));
     }
 }
