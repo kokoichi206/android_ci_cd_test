@@ -2,7 +2,10 @@ package io.kokoichi.sample.testes;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import android.content.Context;
 
@@ -43,5 +46,15 @@ public class ExampleInstrumentedTest {
     @Test
     public void isButtonClickable() {
         onView(withId(R.id.button)).perform(click());
+    }
+
+    @Test
+    public void helloWorld() {
+        onView(withId(R.id.harowa)).check(matches(withText("Hello World!")));
+    }
+
+    @Test
+    public void inputType() {
+        onView(withId(R.id.editTextTextPersonName)).perform(typeText("Gebo gebo"));
     }
 }
