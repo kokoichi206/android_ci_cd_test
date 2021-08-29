@@ -1,5 +1,9 @@
 package io.kokoichi.sample.testes;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+
 import android.content.Context;
 
 import androidx.constraintlayout.utils.widget.MockView;
@@ -8,12 +12,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -32,5 +32,10 @@ public class ExampleInstrumentedTest {
 //
 //        mockList.add("apple");
 //        assertEquals("apple", mockList.get(0));
+    }
+    
+    @Test
+    public void isButtonClickable() {
+        onView(withId(R.id.button)).perform(click());
     }
 }
