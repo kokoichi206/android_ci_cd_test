@@ -50,7 +50,9 @@ public class ExampleInstrumentedTest {
 
     @Test
     public void helloWorld() {
+
         onView(withId(R.id.harowa)).check(matches(withText("Hello World!")));
+        
     }
 
     @Test
