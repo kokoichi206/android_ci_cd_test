@@ -112,8 +112,8 @@ jobs:
       with:
         name: results
         path: |
-          **/build/reports/lint-results-*.html
-          **/build/reports/lint-results-*.xml
+          **/build/reports/lint-results-1.html
+          **/build/reports/lint-results-1.xml
         if-no-files-found: error
         retention-days: 14
 
@@ -134,6 +134,6 @@ jobs:
       with:
         name: results
         path: |
-          **/build/reports/detekt/**/*
+          **/build/reports/detekt/test
         if-no-files-found: error
         retention-days: 14
