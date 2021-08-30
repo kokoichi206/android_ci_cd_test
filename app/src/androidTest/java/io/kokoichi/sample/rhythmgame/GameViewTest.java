@@ -1,5 +1,10 @@
 package io.kokoichi.sample.rhythmgame;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import androidx.test.annotation.UiThreadTest;
 import androidx.test.rule.ActivityTestRule;
 
@@ -8,19 +13,12 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import static android.content.DialogInterface.BUTTON_POSITIVE;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 public class GameViewTest {
 
     @Rule
     public ActivityTestRule<GameActivity> mActivityGameTestRule = new ActivityTestRule<GameActivity>(GameActivity.class);
 
     private GameActivity mActivityGame = null;
-
     private GameView gameView;
 
     class RelativePosition {
@@ -172,27 +170,6 @@ public class GameViewTest {
         assertNotNull(gameView.dialog);
         assertTrue(gameView.dialog.isShowing());
 
-    }
-
-    /**
-     * CAUTION:
-     * This gameOver dialog does not (cannot) run on UI Thread,
-     * so there should not be a UiThreadTest annotation
-     */
-    @Test
-    public void gameOverDialog() {
-
-        gameView.gameOverDialog();
-
-        // Check the existence of a dialog
-        assertNotNull(gameView.dialog);
-        assertTrue(gameView.dialog.isShowing());
-
-
-        // TODO:
-        // How to check the title and message ?
-
-        gameView.dialog.dismiss();
     }
 
     @After

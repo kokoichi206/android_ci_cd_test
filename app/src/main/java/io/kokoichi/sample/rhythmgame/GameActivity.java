@@ -17,15 +17,19 @@ public class GameActivity extends AppCompatActivity {
         point = new Point();
         getWindowManager().getDefaultDisplay().getSize(point);
 
-        gameView = new GameView(this, point.x, point.y);
+        gameView = new GameView(GameActivity.this, point.x, point.y);
 
         setContentView(gameView);
     }
 
     @Override
     protected void onPause() {
+
         super.onPause();
-        gameView.pause();
+
+        // `finish()` method is for the following case.
+        //      pause button -> home button
+        finish();
     }
 
     @Override
@@ -36,14 +40,12 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+
+        super.onDestroy();
+
         // Do something before killing this GameActivity
         if (MyMediaPlayer.player != null) {
             MyMediaPlayer.player.release();
         }
-        MyMediaPlayer.player = null;
-
-        super.onDestroy();
-
-
     }
 }

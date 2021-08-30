@@ -15,7 +15,6 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeTrue;
 
 public class MainActivityTest {
 
@@ -75,10 +74,12 @@ public class MainActivityTest {
 //    @UiThreadTest
     @Test
     public void changeRank() {
-        assumeTrue(true);
 
         mActivity.runOnUiThread(
-                () -> {
+                new Runnable() {
+                @Override
+                public void run() {
+
                     // Change rank to 255
                     mActivity.me.rank = 255;
                     mActivity.changeRank();
@@ -88,6 +89,7 @@ public class MainActivityTest {
                     int displayedRank = Integer.parseInt((String) view.getText());
                     assertEquals(255, displayedRank);
                 }
+            }
         );
     }
 
@@ -133,20 +135,23 @@ public class MainActivityTest {
         int actual_max_width = max_width - edge;
 
         mActivity.runOnUiThread(
-                () -> {
+                new Runnable() {
+                    @Override
+                    public void run() {
 
-                    for (int exp: test_exp) {
+                        for (int exp: test_exp) {
 
-                        mActivity.me.exp = exp;
-                        mActivity.changeExpBarSize();
+                            mActivity.me.exp = exp;
+                            mActivity.changeExpBarSize();
 
-                        ImageView layout1 = mActivity.findViewById(R.id.exp_bar);
-                        ViewGroup.LayoutParams params1 = layout1.getLayoutParams();
-                        int width = params1.width;
+                            ImageView layout = mActivity.findViewById(R.id.exp_bar);
+                            ViewGroup.LayoutParams params = layout.getLayoutParams();
+                            int width = params.width;
 
-                        assertTrue(width < actual_max_width);
+                            assertTrue(width < actual_max_width);
 //                            assertTrue(Math.abs((double) (width / actual_max_width) - (double) (mActivity.me.exp / mActivity.max_exp)) < 0.1);
 
+                        }
                     }
                 }
         );

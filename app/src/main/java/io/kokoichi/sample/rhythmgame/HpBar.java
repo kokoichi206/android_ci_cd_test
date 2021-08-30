@@ -4,7 +4,6 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
-import android.os.Looper;
 import android.util.Log;
 
 import static io.kokoichi.sample.rhythmgame.GameView.screenRatioX;
@@ -42,6 +41,5 @@ public class HpBar {
         int new_width = width * current_hp / max_hp;
         hp_bar = Bitmap.createScaledBitmap(hp_bar, new_width - 2 * edge, height - 2 * edge, false);
 
-        Log.d("hoge", String.valueOf(Looper.myLooper()));
     }
 }
