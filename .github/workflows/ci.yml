@@ -79,5 +79,5 @@ jobs:
           target: default
           arch: x86
           profile: Nexus 6
-          script: ./gradlew connectedCheck --stacktrace
+          script: ./gradlew connectedCheck --debug
 
