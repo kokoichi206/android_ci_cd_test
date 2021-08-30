@@ -64,3 +64,20 @@ jobs:
     - name: Test with Gradle
       run: ./gradlew test --stacktrace
 
+  ui-test:
+    name: Test
+    runs-on: macos-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Run Unit Tests
+        run: ./gradlew testStagingDebugUnitTest
+      - name: run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 23
+          target: default
+          arch: x86
+          profile: Nexus 6
+          script: ./gradlew connectedCheck --stacktrace
+
