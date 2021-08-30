@@ -36,12 +36,14 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-
-        super.onDestroy();
-
         // Do something before killing this GameActivity
         if (MyMediaPlayer.player != null) {
             MyMediaPlayer.player.release();
         }
+        MyMediaPlayer.player = null;
+
+        super.onDestroy();
+
+
     }
 }

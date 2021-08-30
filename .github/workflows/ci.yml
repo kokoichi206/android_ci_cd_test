@@ -63,7 +63,7 @@ jobs:
       - name: Test with Gradle
         run: ./gradlew test --stacktrace
       - name: Run Unit Tests
-        run: ./gradlew app/src/androidTest/java/io.kokoichi.sample.rhythmgame
+        run: ./gradlew app/src/androidTest/java/io.kokoichi.sample.rhythmgame/GameViewTest --stacktrace
         
   # run UI tests
   ui-test:
@@ -78,6 +78,8 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
+      - name: Run unit tests
+        run: ./gradlew test --stacktrace
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -86,3 +88,9 @@ jobs:
           arch: x86
           profile: Nexus 6
           script: ./gradlew connectedCheck --stacktrace
+      - name: Upload Reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test-Reports
+          path: app/build/reports
+        if: always()

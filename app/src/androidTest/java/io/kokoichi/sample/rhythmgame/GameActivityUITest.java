@@ -9,6 +9,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import androidx.test.espresso.ViewAction;
@@ -82,8 +83,6 @@ public class GameActivityUITest {
         // Check if the activity is destroying
         assertTrue(mActivityGame.isFinishing());
 
-        // The music is stopped
-//        assertFalse(mActivityGame.gameView.myPlayer.player.isPlaying());
     }
 
     @Test
@@ -104,8 +103,6 @@ public class GameActivityUITest {
         // Check if the GameActivity finishes
         assertTrue(mActivityGame.isFinishing());
 
-        // The music is stopped
-//        assertFalse(mActivityGame.gameView.myPlayer.player.isPlaying());
     }
 
     @After
