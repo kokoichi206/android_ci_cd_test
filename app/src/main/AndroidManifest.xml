@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.kokoichi.sample.testes">
+    package="io.kokoichi.sample.rhythmgame">
 
     <application
         android:allowBackup="true"
@@ -8,10 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Testes">
+        android:theme="@style/Theme.RhythmGame">
+        <activity android:name=".GameActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.RhythmGame.noActionBar"></activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.RhythmGame.noActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
