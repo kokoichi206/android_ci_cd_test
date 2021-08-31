@@ -151,12 +151,11 @@ public class GameActivityUITest {
         // Click the ok button in the dialog
         onView(withText(R.string.dead_dialog_ok))
                 .perform(click());
+        
+        sleep(1000);
 
         // Check if the GameActivity finishes
         assertTrue(mActivityGame.isFinishing());
-
-        sleep(1000);
-
         // The music is stopped
         // assertFalse(mActivityGame.gameView.myPlayer.player.isPlaying());
     }
