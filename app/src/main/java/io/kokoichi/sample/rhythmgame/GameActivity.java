@@ -29,7 +29,7 @@ public class GameActivity extends AppCompatActivity {
         gameView.pause();
         // `finish()` method is for the following case.
         //      pause button -> home button
-        // finish();
+        finish();
     }
 
     @Override
