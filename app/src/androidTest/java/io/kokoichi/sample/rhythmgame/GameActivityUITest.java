@@ -160,33 +160,33 @@ public class GameActivityUITest {
         // assertFalse(mActivityGame.gameView.myPlayer.player.isPlaying());
     }
 
-    // @Test
-    // public void isDeadDialogUnCancelable() {
-    //     // Reduce hp
-    //     mActivityGame.gameView.hpBar.current_hp = 1;
-    //     // the dead dialog is displayed
-    //     onView(withText(R.string.dead_dialog_message))
-    //             .inRoot(isDialog())
-    //             .check(matches(isDisplayed()));
+    @Test
+    public void isDeadDialogUnCancelable() {
+        // Reduce hp
+        mActivityGame.gameView.hpBar.current_hp = 1;
+        // the dead dialog is displayed
+        onView(withText(R.string.dead_dialog_message))
+                .inRoot(isDialog())
+                .check(matches(isDisplayed()));
 
-    //     // Tap outside the dialog
-    //     onView(isRoot()).perform(clickXY(-100, 100));
+        // Tap outside the dialog
+        onView(isRoot()).perform(clickXY(-100, 100));
 
-    //     // Check if the dialog is STILL displayed
-    //     isDialogDisplayed(R.string.dead_dialog_message);
+        // Check if the dialog is STILL displayed
+        isDialogDisplayed(R.string.dead_dialog_message);
 
-    //     // Press back button
-    //     pressBack();
+        // Press back button
+        pressBack();
 
-    //     // Check if the dialog is STILL displayed
-    //     isDialogDisplayed(R.string.dead_dialog_message);
+        // Check if the dialog is STILL displayed
+        isDialogDisplayed(R.string.dead_dialog_message);
 
     //    // Press home button
     //    pressHome();
 
     //    // Check if the activity is destroying
     //    assertTrue(mActivityGameTestRule.getActivity().isFinishing());
-    // }
+    }
 
     @After
     public void tearDown() throws Exception {
