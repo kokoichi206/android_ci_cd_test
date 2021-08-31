@@ -84,6 +84,14 @@ public class GameActivityUITest {
         UiDevice uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         uiDevice.pressHome();
     }
+    public void sleep(int milliSec) {
+        try {
+            Thread.sleep(milliSec);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    
 
     public void isDialogDisplayed(int message) {
         // Check if the dialog is displayed
@@ -123,6 +131,8 @@ public class GameActivityUITest {
         // Check if the activity is destroying
         assertTrue(mActivityGame.isFinishing());
 
+        sleep(1000);
+
         // The music is stopped
         // assertFalse(mActivityGame.gameView.myPlayer.player.isPlaying());
     }
@@ -144,6 +154,8 @@ public class GameActivityUITest {
 
         // Check if the GameActivity finishes
         assertTrue(mActivityGame.isFinishing());
+
+        sleep(1000);
 
         // The music is stopped
         // assertFalse(mActivityGame.gameView.myPlayer.player.isPlaying());
