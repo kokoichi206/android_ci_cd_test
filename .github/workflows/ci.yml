@@ -63,7 +63,7 @@ jobs:
 
   local-test:
     runs-on: ubuntu-latest
-    needs: build
+    # needs: build
     timeout-minutes: 15
 
     steps:
@@ -82,7 +82,7 @@ jobs:
 
   android-emulator-test:
     runs-on: macos-latest
-    needs: build
+    # needs: build
     timeout-minutes: 30
 
     strategy:
