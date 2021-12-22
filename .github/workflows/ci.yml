@@ -95,11 +95,11 @@ jobs:
         uses: actions/checkout@v2
 
       # setup JDK
-      - name: set up JDK 11
-        uses: actions/setup-java@v2
+      - name: set up JDK 8
+        uses: actions/setup-java@v1
         with:
           distribution: 'zulu'
-          java-version: '11'
+          java-version: '8'
 
       # Determin emulator image to use according to api-level.
       # https://docs.github.com/ja/actions/learn-github-actions/workflow-commands-for-github-actions#example
