@@ -44,14 +44,8 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          if [[ -n "${{ secrets.KEYSTORE_BASE64 }}" ]]; then
-            echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/release.keystore
-            export KEYSTORE_PASSWORD="${{ secrets.KEYSTORE_PASSWORD }}"
-            export KEY_ALIAS="${{ secrets.KEY_ALIAS }}"
-            export KEY_PASSWORD="${{ secrets.KEY_PASSWORD }}"
-          fi
           export ENV_API_KEY="${{ secrets.API_KEY }}"
-          ./gradlew assembleRelease
+          ./gradlew assembleDebug
 
       # Cache build files for later deploy
       - name: Cache build files
@@ -88,7 +82,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        api-level: [ 26, 29, 30 ]
+        api-level: [ 23, 26, 29, 30 ]
 
     steps:
       - name: checkout
@@ -120,6 +114,7 @@ jobs:
           target: default
           arch: x86
           profile: Galaxy Nexus
+          emulator-build: 6110076
           script: ./gradlew connectedCheck --stacktrace
 
       # Upload results as a artifact even if the test failed
